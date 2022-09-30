@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Planning</title>
+</head>
+
+<body onload="addWatch()">
+  <header>
+    <div class="title">
+      <h3>Planejamento Semanal</h3>
+      <p>Utilize o formulário para adicionar novas tarefas:</p>
+    </div>
+    <div class="nav-bar">
+      <div class="actions">
+        <button class="save">
+          <p>Salvar localStorage</p>
+        </button>
+        <div class="delete">
+          <p>Excluir localStorage</p>
+        </div>
+      </div>
+      <div class="date-time">
+        <div class="time">
+          <span id='h'></span>:<span id='m'></span>
+        </div>
+        <div class="date"><span id='date'></span></div>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="main-section">
+    <div class="tools">
+      <input class="activity" type="text" placeholder="Atividade">
+      <!-- <button class="days"></button> -->
+
+      <!-- <div class="days">
+          <button onclick="myFunction()" class="daysbtn">Selecione o Dia</button>
+          <div id="myDays" class="days-content">
+            <a href="#">Segunda-feira</a>
+            <a href="#">Terça-feira</a>
+            <a href="#">Quarta-Feira</a>
+            <a href="#">Quinta-feira</a>
+            <a href="#">Sexta-feira</a>
+            <a href="#">Sabado</a>
+            <a href="#">Domingo</a>
+          </div>
+        </div> -->
+      <form>
+
+        <select id="myList" class="days" onchange="favTutorial()">
+          <option> Selecione o dia </option>
+          <option> Segunda-feira </option>
+          <option> Terça-feira </option>
+          <option> Quarta-feira </option>
+          <option> Quinta-feira </option>
+          <option> Sexta-feira </option>
+          <option> Sabado </option>
+          <option> Domingo </option>
+        </select>
+      </form>
+
+      <input id="input-time" type="time" class="hours" onchange="teste()"></input>
+      <button class="add" type="button" onclick="createdTask()"><img src="/images/plus +.svg">Adicionar
+        Atividade</button>
+      <button class="dell" type="button"><img src="/images/plus -.svg">Excluir todos</button>
+      <input type="text" id="favourite" size="20">
+    </div>
+    <div class="internal">
+
+      <div class="days-of-the-week">
+        <!-- renomear isso -->
+        <div class="appointment">
+          <h3>Horário</h3>
+        </div>
+        <button class="day0">Segunda-Feira</button>
+        <button class="day1">Terça-Feira</button>
+        <button class="day2">Quarta-Feira</button>
+        <button class="day3">Quinta-Feira</button>
+        <button class="day4">Sexta-Feira</button>
+        <button class="day5">Sábado</button>
+        <button class="day6">Domingo</button>
+
+
+      </div>
+
+
+      <div class="schedules">
+        <div class="to-do-schedule">
+          <div class="make-appointments">
+              <p>10h30m</p>
+          </div>
+
+          <div class="task">
+            <div class="content">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sed tenetur laudantium beatae dicta.
+                Temporibus architecto .</p>
+            </div>
+           <button class="out"> <!-- Delete -->
+              Apagar
+           </button>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </section>
+  <div class="logo"></div>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
