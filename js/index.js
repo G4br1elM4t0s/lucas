@@ -5,14 +5,12 @@ let data = document.querySelector("#data");
 let semana = document.querySelector("#semana");
 
 let dataHora = new Date();
-//console.log(dataHora)
 
-function addWatch() {
+function addWatch() { //trocar o nome da função
   let momentoAtual = new Date();
 
   let hora = momentoAtual.getHours();
   let minuto = momentoAtual.getMinutes();
-  let segundo = momentoAtual.getSeconds();
 
   let strHora = new String(hora);
   let strMinuto = new String(minuto);
@@ -30,56 +28,64 @@ function giveDate() {
   let day = dataHora.getDate();
   let mounth = dataHora.getMonth() + 1;
   let year = dataHora.getFullYear();
-  let monthFull;
-  let strDay = new String(day);
-  let strMounth = new String(mounth);
 
-  if (strDay.length == 1) mounth = "0" + day;
-  if (strMounth.length == 1) mounth = "0" + mounth;
-  console.log("tentei");
+  switch (mounth) {
+    case 1:
+      mounth = "Janeiro";
+      break;
+    case 2:
+      mounth = "Fevereiro";
+      break;
 
-  if (mounth == 9) {
-    monthFull = "Setembro";
+    case 3:
+      mounth = "Março";
+      break;
+
+    case 4:
+      mounth = "Abril";
+      break;
+
+    case 5:
+      mounth = "Maio";
+      break;
+
+    case 6:
+      mounth = "Junho";
+      break;
+
+    case 7:
+      mounth = "Julho";
+      break;
+
+    case 8:
+      mounth = "Agosto";
+      break;
+
+    case 9:
+      mounth = "Setembro";
+      break;
+
+    case 10:
+      mounth = "Outubro";
+      break;
+    case 11:
+      mounth = "Novembro";
+      break;
+
+    case 12:
+      mounth = "Dezembro";
+      break;
+
+    default:
+      break;
   }
-  console.log(monthFull);
-  console.log(mounth);
 
-  let currentDate = day + " de " + monthFull + " de " + year;
+  let currentDate = day + " de " + mounth + " de " + year;
 
   date.textContent = currentDate;
 }
-// evocar a funcao
 giveDate();
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content 
-function myFunction() {
-  document.getElementById("myDays").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.daysbtn')) {
-    var days = document.getElementsByClassName("days-content");
-    var i;
-    for (i = 0; i < days.length; i++) {
-      var openDays = days[i];
-      if (openDays.classList.contains('show')) {
-        openDays.classList.remove('show');
-      }
-    }
-  }
-}*/
-
-//show and hide dropdown list item on button click
-function show_hide() {
-  var click = document.getElementById("list-items");
-  if (click.style.display === "none") {
-    click.style.display = "block";
-  } else {
-    click.style.display = "none";
-  }
-}
 function favTutorial() {
   var mylist = document.getElementById("myList");
   document.getElementById("favourite").value =
@@ -87,39 +93,16 @@ function favTutorial() {
   console.log(document.getElementById("favourite").value);
 }
 
-
-  
-  //var => varivel global! e que possui mudanças internas 
-
-//var a = 1
-
-// var a ="oiiiii"
-
-
-
-const localStorage = ["teste"]
-localStorage = "aaaaaaa"
-console.log(localStorage)
-
-
-
-//let b = 2
-// b = 2 || b = Tres {}  for (... let b = 0 )
-// // const  saudacao = () => { 
-//      return 'bem-vindo' 
-//   }
-
 function createdTask() {
-  let textContent = document.querySelector(".activity").value;
-  let weekDay = document.querySelector("#favourite").value;
-  let hours = document.getElementById("input-time").value;
-
-  const divideHours = hours.split(":")
-  const formatedHours = divideHours[0]+ "h" +divideHours[1]+ "m"
-  console.log()
   
+
+  const divideHours = hours.split(":");
+  const formatedHours = divideHours[0] + "h" + divideHours[1] + "m";
+  console.log();
+
   const schedule = document.createElement("div");
   schedule.classList.add("to-do-schedule");
+  schedule.classList.add("teste")
   const appointment = document.createElement("div");
   appointment.classList.add("make-appointments");
   const task = document.createElement("div");
@@ -151,23 +134,165 @@ function createdTask() {
       break;
   }
 
-  
- 
+  //create a forEach to add to the bank "ou seja criar um forEach para adicionar no banco" check
+
+  //Nesse forEach ele deve criar esse atributo já personalizado check
+
+  //apagar no banco  check
+
+  //deletar todos check
+
+  //criar abasde filtragem personalizadas para listar so os dias e um para default
+
+  //horarios repetidos deveremos colocar um do lado do outro e colocar uma linha demarcando
+
+  //finals create localStorege e dellLocalStorege
 
   appointment.innerHTML = `<h6>${formatedHours}</h6>`;
 
   task.innerHTML = `  <div class="content">
     <p>${textContent}</p>
   </div>
- <button class="out"> <!-- Delete -->
+ <button class="out teste"> <!-- Delete -->
     Apagar
  </button>`;
 
   document.querySelector(".schedules").appendChild(schedule);
 }
 
+
 function teste() {
   console.log(document.querySelector(".activity").value);
   console.log(document.getElementById("input-time").value);
   console.log(document.querySelector("#favourite").value);
 }
+
+const dataBase = [
+  {"hours":"10h30m","textContent":"Estudar","weekDay":"Segunda-feira"},
+ 
+]
+
+//capture data;
+  let textContent = document.querySelector(".activity").value;
+  let weekDay = document.querySelector("#favourite").value;
+  let hours = document.getElementById("input-time").value;
+
+  let buttonAdd = document.querySelector('.add');
+  
+
+//create task to facilited!
+const createTask = (textContent,hours,weekDay, indice) => {
+  let week;
+  switch (weekDay) {
+    case "Segunda-feira":
+      week="taskMon";
+      break;
+    case "Terça-feira":
+      week="taskTues";
+      break;
+    case "Quarta-feira":
+      week="taskWednes";
+      break;
+    case "Quinta-feira":
+      week="taskThurs";
+      break;
+    case "Sexta-feira":
+      week="taskFri";
+      break;
+    case "Sabado":
+      week="taskSatur";
+      break;
+    case "Domingo":
+      week="taskSun";
+      break;
+  }
+ 
+  console.log(dataBase.some(task => task.hours == hours))
+
+    const task = document.createElement("div");
+    task.classList.add("to-do-schedule");
+    task.innerHTML = ` 
+    <div class="make-appointments teste ">
+        <p>${hours}</p>
+    </div>
+  
+    <div class="task ${week}">
+      <div class="content">
+        <p>${textContent}</p>
+      </div>
+    <button class="out" data-indice=${indice}> <!-- Delete -->
+        Apagar
+    </button>
+    </div>
+    `
+
+   
+
+
+
+  document.querySelector(".schedules").appendChild(task)
+}
+
+const clearListTask = () =>{
+  const todoSchedule = document.querySelector('.schedules');
+  while(todoSchedule.firstChild){
+    todoSchedule.removeChild(todoSchedule.lastChild);
+  }
+}
+
+//list tasks
+const listTasks = () =>{
+  clearListTask();
+  dataBase.forEach((task,indice) => createTask( task.textContent,task.hours,task.weekDay, indice));
+}
+
+//remove all task
+addEventListener("click",(e)=>{
+  const elemento = e.target
+})
+
+
+//capture out button
+addEventListener("click",(e)=>{
+  const elemento = e.target;
+  
+  if(elemento.classList.contains("out")){
+    const ind = elemento.dataset.indice;
+    removeItem(ind)
+  }
+
+
+  if(elemento.classList.contains("dell")){
+    while(dataBase.length>0){
+     dataBase.forEach((item, indice) => removeItem(indice) )
+    }
+    listTasks()
+  }
+ 
+})
+
+const removeItem=(ind)=>{
+  dataBase.splice(ind,1);
+  listTasks();
+}
+
+
+//insert to database
+const insertTask = () =>{
+  let textContent = document.querySelector(".activity").value;
+  let weekDay = document.querySelector("#favourite").value;
+  let hours = document.getElementById("input-time").value;
+  dataBase.push({"hours":`${hours}`,"textContent":`${textContent}`,"weekDay":`${weekDay}`})
+  listTasks();
+  let schedule = document.querySelectorAll('.to-do-schedule');
+  schedule.forEach(s => console.log(s.getBoundingClientRect()));
+}
+
+
+listTasks()
+buttonAdd.onclick = insertTask
+
+
+
+
+
