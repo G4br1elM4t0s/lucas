@@ -18,7 +18,7 @@
     </div>
     <div class="nav-bar">
       <div class="actions">
-        <button class="save" onclick="">
+        <button class="save">
           <p>Salvar localStorage</p>
         </button>
         <div class="delete">
@@ -37,23 +37,9 @@
 
   <section class="main-section">
     <div class="tools">
-      <input class="activity" type="text" placeholder="Atividade">
-      <!-- <button class="days"></button> -->
-
-      <!-- <div class="days">
-          <button onclick="myFunction()" class="daysbtn">Selecione o Dia</button>
-          <div id="myDays" class="days-content">
-            <a href="#">Segunda-feira</a>
-            <a href="#">Terça-feira</a>
-            <a href="#">Quarta-Feira</a>
-            <a href="#">Quinta-feira</a>
-            <a href="#">Sexta-feira</a>
-            <a href="#">Sabado</a>
-            <a href="#">Domingo</a>
-          </div>
-        </div> -->
+      <input class="activity" type="text" placeholder="Atividade"> 
+     
       <form>
-
         <select id="myList" class="days" onchange="favTutorial()">
           <option> Selecione o dia </option>
           <option> Segunda-feira </option>
@@ -66,7 +52,7 @@
         </select>
       </form>
 
-      <input id="input-time" type="time" class="hours" onchange="teste()"></input>
+      <input id="input-time" type="time" class="hours"></input>
       <button class="add" type="button"><img src="/images/plus +.svg">Adicionar
         Atividade</button>
       <button class="dell" type="button"><img src="/images/plus -.svg">Excluir todos</button>
